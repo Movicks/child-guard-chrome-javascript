@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Child Guard",
+  "version": "0.1",
+  "background":{
+      "service_worker": "background/background.js"
+  },
+  "permissions":[
+    "storage", "activeTab", "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "scripts/index.js",
+        "popup/popup.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "action":{
+    "default_popup": "popup/popup.html",
+    "css":[
+      "popup/style.css"
+    ],
+    "default_icon":{
+      "32": "ChildGuard.jpg"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["404page.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
