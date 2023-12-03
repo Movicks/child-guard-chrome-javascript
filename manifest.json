@@ -1,6 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Child Guard",
+  "description": "Child Guard Chrome Extension allows parents to block specific URLs, redirecting them to a customizable 404 page, providing content control for a child's internet usage.",
   "version": "0.1",
   "background":{
       "service_worker": "background/background.js"
