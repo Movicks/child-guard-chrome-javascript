@@ -27,8 +27,8 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     const currentURL = changeInfo.url;
 
     // Check if the current URL matches any blocked URL
-    chrome.storage.local.get({ blockedURLs: [] }, function (result) {
-      const blockedURLs = result.blockedURLs || [];
+    chrome.storage.local.get({ urls: [] }, function (result) {
+      const blockedURLs = result.urls || [];
 
       const isBlocked = blockedURLs.some(blockedURL => currentURL.includes(blockedURL));
 
@@ -59,4 +59,3 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     });
   }
 });
-

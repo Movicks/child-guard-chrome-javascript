@@ -1,5 +1,3 @@
-// content-script
-
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (request.action === 'displayContents') {
       // Perform actions to display contents or gather information from the current tab

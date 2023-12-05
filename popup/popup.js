@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
             callback(true);
         } else {
             callback(false);
+            alert("url added to storage!");
+            urlInput.value = '';
         }
     });
 }
