@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
             callback(true);
         } else {
             callback(false);
-            alert("url added to storage!");
+            alert("url added to storage.! Refresh to update UI");
             urlInput.value = '';
         }
     });
@@ -91,10 +91,9 @@ document.addEventListener('DOMContentLoaded', function () {
       if (event.target.classList.contains('deleteButton')) {
           // Get the URL associated with the delete button
           const urlToDelete = event.target.dataset.url;
-
           // Delete the URL from storage
           deleteUrlFromStorage(urlToDelete);
-
+          alert(urlToDelete + " has been deleted from the storage.  Please refresh to update UI");
           // Updating the URL list in the UI
           updateUrlList();
       }
@@ -129,17 +128,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Update the URL list when the popup is opened
   updateUrlList();
-
   // Add event listener for tab URL changes
   chrome.tabs.onUpdated.addListener(function (tabId, changeInfo) {
     // Check if the URL has been updated
     if (changeInfo.url) {
         console.log('Tab URL updated:', changeInfo.url);
-
         // Check if the updated URL is in the storage
         isUrlExists(changeInfo.url, function (exists) {
             console.log('URL in storage:', exists);
-
             if (exists) {
                 // Redirect the tab to the 404.html page
                 console.log('Redirecting to 404.html');
